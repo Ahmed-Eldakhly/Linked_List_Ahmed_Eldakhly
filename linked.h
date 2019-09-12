@@ -132,6 +132,4 @@ void ListSize(node ** list);
  *******************************************************************************/
 void ListReverse(node ** list);
 
-
-
 #endif /* LINKED_H_ */

@@ -7,11 +7,15 @@
  ============================================================================
  */
 
-
+/*******************************************************************************
+ *                       	Included Libraries                                 *
+ *******************************************************************************/
 #include "linked.h"
 #include "stdio.h"
 #include "stdlib.h"
-
+/*******************************************************************************
+ *                       	Main Function		                               *
+ *******************************************************************************/
 int main(void)
 {
 	setvbuf(stdout, NULL, _IONBF,0);
@@ -25,7 +29,7 @@ int main(void)
 	{
 		printf("Please Select One of these choices\n");
 		printf("1 for insert to list\n2 for delete List\n3 for delete node\n4 for print list\n");
-		printf("5 for search in list\n6 for show linked list length\n7 to exit\n");
+		printf("5 for search in list\n6 for show linked list length\n7 for reverse Linked List\n8 to exit\n");
 		scanf("%d",&Choice);
 		switch(Choice)
 		{
@@ -58,6 +62,9 @@ int main(void)
 			ListSize(LinkedList);
 			break;
 		case 7:
+			ListReverse(LinkedList);
+			break;
+		case 8:
 			return 0;
 			break;
 

@@ -11,7 +11,9 @@
  *                       	Included Libraries                                 *
  *******************************************************************************/
 #include "linked.h"
-
+/*******************************************************************************
+ *                      Global Variables  		                               *
+ *******************************************************************************/
 static uint8 MaxPosition=0;
 /*******************************************************************************
  *                      Functions Definitions                                   *
@@ -39,9 +41,11 @@ node** Create_List(void)
  *
  * Description: 	Insert Node to Head
  *
- * Inputs:			NULL
+ * Inputs:			pointer to pointer to pointer to struct
+ * 					uint32
+ * 					uint8
  *
- * Return:		    pointer to struct
+ * Return:		    Status
  *******************************************************************************/
 Status InsertToList(node ** List,uint32 Data,uint8 Position)
 {
@@ -100,6 +104,15 @@ Status InsertToList(node ** List,uint32 Data,uint8 Position)
 	return ReturnVal;
 }
 
+/*******************************************************************************
+ * Function Name:	printList
+ *
+ * Description: 	Print data in all members of Linked List
+ *
+ * Inputs:			pointer to pointer to pointer to struct
+ *
+ * Return:		    NULL
+ *******************************************************************************/
 void printList(node ** list)
 {
 	node *ptr = *list;
@@ -115,6 +128,15 @@ void printList(node ** list)
 	printf(" [null]\n");
 }
 
+/*******************************************************************************
+ * Function Name:	DeleteList
+ *
+ * Description: 	Delete all of Linked List Nodes
+ *
+ * Inputs:			pointer to pointer to pointer to struct
+ *
+ * Return:		    NULL
+ *******************************************************************************/
 void DeleteList(node ** list)
 {
 	node *DeleteNode=NULL;
@@ -131,6 +153,16 @@ void DeleteList(node ** list)
 	printf("Deleted");
 }
 
+/*******************************************************************************
+ * Function Name:	DeleteNode
+ *
+ * Description: 	Delete specific node from Linked List
+ *
+ * Inputs:			pointer to pointer to pointer to struct
+ * 					uint8
+ *
+ * Return:		    NULL
+ *******************************************************************************/
 void DeleteNode(node ** list,uint8 Position)
 {
 	node *DeleteNode;
@@ -160,6 +192,16 @@ void DeleteNode(node ** list,uint8 Position)
 	}
 }
 
+/*******************************************************************************
+ * Function Name:	SearchForNode
+ *
+ * Description: 	Search for Node by its Data
+ *
+ * Inputs:			pointer to pointer to pointer to struct
+ * 					uint32
+ *
+ * Return:		    NULL
+ *******************************************************************************/
 void SearchForNode(node ** list,uint32 Data)
 {
 	uint32 counter=0;
@@ -190,6 +232,15 @@ void SearchForNode(node ** list,uint32 Data)
 	}
 }
 
+/*******************************************************************************
+ * Function Name:	ListSize
+ *
+ * Description: 	Show Linked List Size
+ *
+ * Inputs:			pointer to pointer to pointer to struct
+ *
+ * Return:		    NULL
+ *******************************************************************************/
 void ListSize(node ** list)
 {
 	uint8 counter=0;
@@ -207,18 +258,26 @@ void ListSize(node ** list)
 	printf("This Linked List Size is %d\n",counter);
 }
 
+/*******************************************************************************
+ * Function Name:	ListReverse
+ *
+ * Description: 	Reverse Linked List Nodes
+ *
+ * Inputs:			pointer to pointer to pointer to struct
+ *
+ * Return:		    NULL
+ *******************************************************************************/
 void ListReverse(node ** list)
 {
-
 	node* preTemp=NULL;
 	node* current=(*list);
-	node*postTemp=NULL;
+	node* postTemp=NULL;
 	while(current!=NULL)
 	{
 		postTemp=current->next;
 		current->next=preTemp;
 		preTemp=current;
-		postTemp->next=current;
-		/*current=postTemp;*/
+		current=postTemp;
 	}
+	(*list)=preTemp;
 }

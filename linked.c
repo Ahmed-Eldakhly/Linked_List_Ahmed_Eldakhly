@@ -167,14 +167,14 @@ void DeleteNode(node ** list,uint8 Position)
 {
 	node *DeleteNode;
 	node *PreNode=*list;
-	if(Position==0)
+	if((Position==0)&&(MaxPosition>=1))
 	{
 		DeleteNode=*list;
 		(*list)=(*list)->next;
 		free(DeleteNode);
 	}
 	/*Delete Nodes from the head until the last node*/
-	else if(MaxPosition>=Position)
+	else if((MaxPosition>=Position)&&(MaxPosition!=0))
 	{
 		for(uint8 i=0;i!=(Position-1);i++)
 		{

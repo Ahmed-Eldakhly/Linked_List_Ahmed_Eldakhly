@@ -172,9 +172,11 @@ void DeleteNode(node ** list,uint8 Position)
 		DeleteNode=*list;
 		(*list)=(*list)->next;
 		free(DeleteNode);
+		MaxPosition--;
+		printf("Node was deleted\n");
 	}
 	/*Delete Nodes from the head until the last node*/
-	else if((MaxPosition>=Position)&&(MaxPosition!=0))
+	else if((MaxPosition>Position)&&(MaxPosition!=0))
 	{
 		for(uint8 i=0;i!=(Position-1);i++)
 		{

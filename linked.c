@@ -150,7 +150,7 @@ void DeleteList(node ** list)
 		free(DeleteNode);
 	}
 
-	printf("Deleted");
+	printf("List was Deleted\n");
 }
 
 /*******************************************************************************
@@ -245,13 +245,13 @@ void ListSize(node ** list)
 {
 	uint8 counter=0;
 	node *SearchNode=*list;
-	if(((*list)->next)==NULL)
+	if((*list)==NULL)
 	{
 		printf("This list is empty\n");
 	}
 	while((SearchNode->next)!=NULL)
 	{
-		SearchNode->next=SearchNode->next->next;
+		SearchNode=SearchNode->next;
 		counter++;
 	}
 	counter++;
